@@ -22,9 +22,9 @@ include_once 'db.php';
                 $isInserted = $prepareQuery->execute([$username, $newpassword, $unit]);
     
                 if($isInserted){
-                        return "You're succesfully registered";
+                        echo "Yes";
                 }else{
-                        return "Something went wrong";
+                        echo "No";
     ;            }
     
     

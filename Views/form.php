@@ -3,7 +3,7 @@ include_once  '../Controller/insert.php';
 
 $insert = new insert();
 
-$insert->registerMe();
+$registerme=$insert->registerMe();
 
 ?>
 
@@ -16,6 +16,7 @@ $insert->registerMe();
     <title>Document</title>
 </head>
 <body>
+   
     <form method="POST">
         <input type="text" name="username"  placeholder="Username">
         <input type="password" name="password"  placeholder="Password">
