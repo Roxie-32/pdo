@@ -1,9 +1,14 @@
 <?php 
 include_once  '../Controller/insert.php';
+include_once '../Controller/select.php';
 
 $insert = new insert();
 
 $registerme=$insert->registerMe();
+
+$selectclass= new select();
+
+
 
 ?>
 
@@ -23,5 +28,12 @@ $registerme=$insert->registerMe();
         <input type="text" name="unit"  placeholder="Unit">
         <button type="submit" name="register">Register</button>
     </form>
+
+    <div class="container">
+    <?php 
+        $selectFunction = $selectclass->selectData();
+
+    ?>
+    </div>
 </body>
 </html>

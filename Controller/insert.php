@@ -4,7 +4,7 @@ include_once 'db.php';
     class insert extends dbconnect{
 
       public function registerMe(){
-            if(isset($_POST['register'])){
+           try{ if(isset($_POST['register'])){
                 $username= $_POST['username'];
                 $password= $_POST['password'];
                 $unit= $_POST['unit'];
@@ -12,7 +12,7 @@ include_once 'db.php';
                 $newpassword=password_hash($password,PASSWORD_DEFAULT);
     
                 //query and binding
-                $query = "INSERT INTO users (username, password,unit) VALUES (?,?,?)";
+                $query = "INSERT INTO pdo.users (username, password,unit) VALUES (?,?,?)";
     
                 //prepare
                 $prepareQuery= $this->conn->prepare($query);
@@ -20,15 +20,18 @@ include_once 'db.php';
                 //execute
     
                 $isInserted = $prepareQuery->execute([$username, $newpassword, $unit]);
+
     
                 if($isInserted){
                         echo "Yes";
                 }else{
-                        echo "No";
-    ;            }
-    
+                        "No";
+                   }
+            }} catch(PDOException $e) {
+                echo "<br>" . $e->getMessage();
+              }
     
             }
         }
-    }
+    
 ?>

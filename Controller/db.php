@@ -6,13 +6,9 @@ class dbconnect {
 
   public function __construct()
     {
-       $this->conn = new PDO("mysql: host = localhost; dbname = pdo", 'root', '');
-
-    //    if($conn){
-    //        return true;
-    //    }else {
-    //        return false;
-    //    }\
+       $this->conn = new PDO("mysql: host = localhost;dbname = pdo", 'root', '');
+       $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     }
     
 }
